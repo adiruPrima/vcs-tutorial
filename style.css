@@ -4,12 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-clr: rgb(226, 226, 209);
+  --text-clr: #000000;
+  --primary-clr: #f5f7dc;
+  --secondary-clr: #b5d99c;
+}
+
+.darkmode {
+  --background-clr: rgb(45, 45, 51);
+  --text-clr: #fff;
+  --primary-clr: #cccdb7;
+  --secondary-clr: #8ead78;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(236, 228, 215);
+  background-color: var(--background-clr);
 }
 
 h1 {
+  color: var(--text-clr);
   font-size: 4rem;
   margin: 1em 0;
 }
@@ -22,9 +37,14 @@ h1 {
 #octocat {
   width: 17rem;
   margin-top: 7rem;
-  /* background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 4rem;
-  box-shadow: 0 0 4rem rgb(255, 255, 255); */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 4rem rgb(255, 255, 255);
+}
+
+.octocat-darkmode {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(79deg)
+    brightness(101%) contrast(102%);
 }
 
 .friendly-welcome {
@@ -35,7 +55,7 @@ h1 {
 
 .text-bubble {
   height: 12rem;
-  background-color: #f5f7dc;
+  background-color: var(--primary-clr);
   color: #774f38;
   font-size: 1.2rem;
   font-weight: 500;
@@ -46,18 +66,18 @@ h1 {
   padding: 2.5rem;
   border-radius: 0.7em;
   position: relative;
-  box-shadow: 1.3rem 1.3rem #b5d99c;
+  box-shadow: 1.3rem 1.3rem var(--secondary-clr);
   animation: float 5s ease-in-out infinite;
 }
 
 .text-bubble::after {
-  background-color: #f5f7dc;
+  background-color: var(--primary-clr);
   font-size: 3.2rem;
   font-weight: bold;
   line-height: 2em;
   text-align: left;
-  text-shadow: 1.5em 0.7em #b5d99c;
-  -webkit-text-fill-color: #f5f7dc;
+  text-shadow: 1.5em 0.7em var(--secondary-clr);
+  -webkit-text-fill-color: var(--primary-clr);
   transform: translateY(0px);
   content: ".";
   width: 3.2rem;
@@ -67,7 +87,7 @@ h1 {
   display: block;
   bottom: -1.2rem;
   right: 0;
-  box-shadow: 1.5rem 1.5rem #b5d99c;
+  box-shadow: 1.5rem 1.5rem var(--secondary-clr);
   z-index: -1;
   animation: float2 5s ease-in-out infinite;
 }
@@ -100,3 +120,21 @@ h1 {
     transform: translateY(0px);
   }
 }
+
+/* Theme toggle botton design */
+
+#theme-toggle {
+  width: 5rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  /* transition: filter 0.3s ease; */
+}
+
+/* #theme-toggle:hover {
+  filter: invert(100%) sepia(70%) saturate(7500%) hue-rotate(356deg)
+    brightness(103%) contrast(111%);
+} */
