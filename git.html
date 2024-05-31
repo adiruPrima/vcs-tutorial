@@ -15,8 +15,7 @@
             <li><a href="#theory">Theory</a></li>
             <li><a href="#installation">Installation</a></li>
             <li><a href="#getting-started">Getting started</a></li>
-            <li><a href="">Commit</a></li>
-            <li><a href="">Branching</a></li>
+            <li><a href="#git-workflow">Git workflow</a></li>
           </ul>
         </nav>
         <h1>Git</h1>
@@ -61,7 +60,7 @@
               >here</a
             >
             to download git. It will redirect you to the official download page
-            (Trust me bro)
+            (Trust me bro).
           </p>
           <br />
           <br />
@@ -133,19 +132,351 @@
         </section>
 
         <section id="getting-started">
-          <h2>Working on the Terminal</h2>
+          <h2>Working in the Terminal</h2>
+          <p>
+            Terminal isn't that scary. Come on, I'll help you dip your toe on
+            the terminal 🫱
+          </p>
+          <br />
+          <p>
+            To navigate your file structure in the terminal we use what's called
+            the <strong>Linux Commands</strong>.
+          </p>
+          <p>
+            But I use MacOS. Doesn't matter. MacOS stems from Unix OS, which is
+            also the root of all Linux distributions.
+          </p>
+          <p>
+            How about Windows? That's what Git Bash is for. Convenient right?
+            Now we can work on the same thing!
+          </p>
+          <br />
+          <article class="note">
+            Note: folders are called directories or
+            <span class="code-snippet">dir</span> for short. Directories are
+            what organize all your files so that they are neat and tidy 😊
+          </article>
+          <br />
+          <h3>Try it out!</h3>
+          <ul>
+            <li>
+              <p>
+                On your terminal, type in <span class="code-snippet">pwd</span>.
+                This will tell you your <strong>current location</strong>.
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                You don't really know what directories are inside of the
+                directory you are in right now. What am I talking about, the
+                point is, how do you know what is inside. Just type
+                <span class="code-snippet">ls</span> and you willsee the
+                <strong>list of the directories</strong> and the files inside
+                your current location ;)
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                As you see the list and... there! You have the sudden urge to go
+                into that directory and see what's inside. But how? Type
+                <span class="code-snippet">cd directory-name</span>, that's cd
+                (space) (name of your folder) to
+                <strong>move inside the chosen directory</strong>.
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                To <strong>go back</strong>, simply type
+                <span class="code-snippet">cd ..</span>, and if you just type
+                <span class="code-snippet">cd</span>, you will be redirected to
+                your <strong>home directory</strong>.
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                You can <strong>create a new directory</strong> by using the
+                <span class="code-snippet">mkdir directory-name</span> command!
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                And to <strong>create a new file</strong>, type in
+                <span class="code-snippet">touch file-name.txt</span> or
+                <span class="code-snippet">echo file-name.txt</span>. Each file
+                has different extention, be sure to match the extention with the
+                type you want to create. For example, text file is
+                <span class="code-snippet">.txt</span>
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                What about deleting? Use
+                <span class="code-snippet">rm</span> command to
+                <strong>remove file or directory</strong>, followed by the file
+                or dir name. However, when deleting a non-empty directory, you
+                must use the -r <em>flag</em> like so:
+                <span class="code-snippet">rm -r dir-name</span>. There's so
+                much more about command flags, but we're not gonna dive in
+                details. Feel free to look it up though!
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                Not only you can move items, but
+                <strong>moving and renaming items</strong>
+                simultaniously can be done by this command:
+                <span class="code-snippet">mv (old path) (new path)</span>. For
+                example, changing MyFile.txt to MyNewFile.txt and moving it to
+                Work folder:
+                <span class="code-snippet"
+                  >mv ~/Downloads/MyFile.txt
+                  ~/Documents/Work/NewFileName.txt</span
+                >
+              </p>
+              <br />
+            </li>
+            <li>
+              <p>
+                <span class="code-snippet">cat</span> command is used to read
+                the contents of a file, think of it like "ey lemme see dat real
+                quick"-type of thing.
+              </p>
+              <br />
+            </li>
+          </ul>
+          <p>
+            Phew... That was a lot. Of course, there are many more commands that
+            are not listed here, we are barely scratching the surface. But these
+            commands should get you started in becoming a power user of the
+            terminal. If in case you don't know what is the purpose of a
+            specific command, you can use
+            <span class="code-snippet">man (command name)</span>, this is like
+            the documentation for all the commands. To exit the man page, just
+            <em>press q and it will exit the page</em>. Good luck and have fun!
+          </p>
+        </section>
+
+        <section id="git-workflow">
+          <h2>Work with Git</h2>
+          <p>
+            Go ahead and create a folder with the name of your choosing and move
+            to that folder. Remember, just type in
+            <span class="code-snippet">mkdir (dir-name)</span> and
+            <span class="code-snippet">cd (dir-name)</span>.
+          </p>
+          <br />
+          <h3>Initialize Git</h3>
+          <p>
+            Git needs to be initialized in order for it to work. To check if Git
+            is already initialized, you can use the
+            <span class="code-snippet">git status</span> command. We will be
+            using this command a lot, I mean A LOT.
+          </p>
+          <p>
+            If it looks something like this means git is not yet initialized:
+          </p>
+          <img src="images/git/not-init.png" alt="" class="terminal-ss" />
+          <p>Initialized git look more or less like this:</p>
+          <img src="images/git/init.png" alt="" class="terminal-ss" />
+          <p>
+            Notice it says branch, and main? What are those? We'll learn about
+            them soon.
+          </p>
+          <br />
+          <br />
+          <p>
+            To initialize Git, type in
+            <span class="code-snippet">git init</span>. Nice! You got git set
+            up, now the real work begins.
+          </p>
+          <br />
+          <h3>Staging</h3>
+          <p>
+            Go ahead and create a file or two in your git repository (a git
+            initialized directory). Once you've done that, try typing the
+            <span class="code-snippet">git status</span> command again and see
+            for yourself.
+          </p>
+          <img src="images/git/staging.png" alt="" class="terminal-ss" />
+          <p>
+            Now my friends, you've added some files but they are not track by
+            Git yet, and the whole point of Git is to "track" progress, no?
+          </p>
+          <br />
+          <p>
+            We now do what's called <strong>Git staging</strong>. It is just to
+            add the untracked to get them ready to be a checkpoint.
+          </p>
+          <br />
+          <p>
+            To do that, simply use the command
+            <span class="code-snippet">git add fileName.txt</span> to stage a
+            specific file, or <span class="code-snippet">git add .</span> to
+            stage all the files that are pending (in red).
+          </p>
+          <br />
+          <p>
+            Once you've done that, go ahead and see git status again and you'll
+            see your files are in green. This means they are
+            <strong>staged for commit</strong>, in a ready state to be a check
+            point.
+          </p>
+          <img src="images/git/staged.png" alt="" class="terminal-ss" />
+          <br /><br />
+          <h3>Git Commit</h3>
+          <p>Once your files have been staged, it is time for commit.</p>
+          <p>Commit just means "let's make this into a checkpoint now".</p>
+          <br />
+          <p>
+            You need a commit message. The purpose is just so you and the others
+            know that at this stage, you've done so and so to the files, just to
+            see the timeline of the work progress clearer.
+          </p>
+          <br />
+          <p>
+            This is how you commit, by using this command:
+            <span class="code-snippet">git commit -m "message here"</span>. Git
+            will prompt you to add the message regardless, so yes, it is
+            necessary.
+          </p>
+          <br />
+          <p>
+            And if you check git status again you'll see that there's nothing to
+            stage, nothing to commit, that is until you make some changes to you
+            repository.
+          </p>
+          <br />
+          <h3>Branching</h3>
+          <div class="firstBlock-git">
+            <p>
+              At some point you'll work on complicated feature and it has the
+              possibility to mess with your entire code. That's where branching
+              comes in.
+            </p>
+            <img src="images/git/git-branch.png" alt="" />
+          </div>
+          <p>
+            Think of it as making another timeline, another alternate universe
+            where you can just mess with it and it wouldn't matter because your
+            original universe is safe and untouched.
+          </p>
+          <br />
+          <p>
+            Type the command <span class="code-snippet">git branch</span> and
+            you will see that you are in the branch main (or master).
+          </p>
+          <br />
+          <p>
+            Let's <strong>create a new branch</strong> to work with. You can
+            name it whatever you want. Type in
+            <span class="code-snippet">git branch newBranchName</span>.
+          </p>
+          <br />
+          <p>
+            See which branch you are located right now. Aleady forgot? Use
+            <span class="code-snippet">git branch</span>! Git branch is used to
+            list all your branches at the same time tells you where you are
+            located.
+          </p>
+          <br />
+          <p>
+            To jump to another branch or <strong>switch branch</strong>, you can
+            use <span class="code-snippet">git checkout branchName</span>. Go
+            ahead see where you are now, of course by typing git branch.
+          </p>
+          <br />
+          <article class="note">
+            Note: If you're working in a specific branch with commited changes,
+            the other branches will not be affected so there will be no changes
+            in different branches. But you have to commit your changes in the
+            branch you're working on, otherwise it'll be pointless. So
+            <em>don't forget to commit your changes!</em>
+          </article>
+          <br />
+          <h3>Merging</h3>
+          <p>
+            Great. Now that you've done your work on a separate branch, you want
+            all that work to be applied to your main branch, your original
+            universe.
+          </p>
+          <br />
+          <p>
+            First, please check WHERE YOU ARE right now by typing git branch.
+          </p>
+          <br />
+          <p>
+            You always want to be where you want the branch to merge into. In my
+            case, I want to merge bug-fix to main. So I move to main and merge
+            the bug-fix here. "Hey, bring bug-fix into me, I'm in main!"
+          </p>
+          <img src="images/git/branch-list.png" alt="" class="terminal-ss" />
+          <br />
+          <br />
+          <p>
+            If you are inside the branch you want to merge into, use the command
+            <span class="code-snippet">git merge branchName</span>. In my case,
+            the branch name is bug-fix.
+          </p>
+          <br />
+          <p>That's it!</p>
+          <br />
+          <h3 class="red-text">Conflict</h3>
+          <p>
+            More often than not you'll encounter a <strong>conflict</strong>.
+            This happens when the branch you are merging have different
+            properties, there's discrepancy to be found.
+          </p>
+          <br />
+          <p>
+            So... you have to <strong>resolve</strong> it. Decide which you want
+            to keep, which to remove, or even keep both changes idk.
+          </p>
+          <br />
+          <p>
+            To resolve a conflict, you have to do it manually. Watch out, there
+            will be signs that you need to understand! &lt;&lt;&lt;&lt;&lt;
+            means your current changes, &gt;&gt;&gt;&gt;&gt; means the upcomming
+            changes, and ===== is just the divider.
+          </p>
+          <br />
+          <img src="images/git/merge-conflict.png" alt="" class="terminal-ss" />
+          <br />
+          <br />
+          <article class="note">
+            Note: To resolve git conflict, you need to remove all the signs
+            since their purpose is just to inform you what's what. So be sure to
+            remove them. You don't need them in your codebase right?
+          </article>
+          <br />
+          <p>Congrats, you resolved the conflict!!</p>
+          <br />
+          <br />
+          <br />
+          <p>
+            And you'll do this over and over agian. That is the
+            <strong>Git Workflow</strong>.
+          </p>
+        </section>
+
+        <section class="ending">
+          <h2>Note from Author</h2>
+          <p>
+            What you've learned here is barely scratching the surface. There's
+            still so much more if you wanna dive deep into Git. But for now, 90%
+            of your workflow with Git will be what you've just learned. I think
+            you're ready to go on your own in your developer journey. See ya 👋
+          </p>
         </section>
       </main>
-      <aside>
-        <h3>Related Links</h3>
-        <ul>
-          <li><a href="https://www.example1.com">Example 1</a></li>
-          <li><a href="https://www.example2.com">Example 2</a></li>
-          <li><a href="https://www.example3.com">Example 3</a></li>
-        </ul>
-      </aside>
       <footer>
-        <p>Copyright ©2022 My Website</p>
+        <p>Copyright ©2022 @adiruPrima</p>
       </footer>
     </div>
     <img src="images/moon.svg" alt="" id="theme-toggle" />
